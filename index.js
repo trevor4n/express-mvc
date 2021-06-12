@@ -10,11 +10,13 @@ app.use(express.json()) //parses application/json request data and adds it to th
 app.use(express.urlencoded({ extended: true })) //parses x-ww-form-urlencoded request data and adds it to the request object as request.body
 app.use(methodOverride('_method'))
 //STRETCH - https://stormpath.com/blog/how-to-write-middleware-for-express-apps
+app.set("port", process.env.PORT || 4000)
 
 //Route Controllers
 app.use('/todos', todoController)
 
-const port = process.env.PORT || 4000
-app.listen(port, () => {
-    console.log(`Express MVC app is running on port ${port}`)
+//const port = process.env.PORT || 4000
+//app.listen(port, () => {
+app.listen(app.get('port'), () => {
+    console.log(`Express MVC app is running on port ${app.get('port')}`)
 })
