@@ -1,7 +1,7 @@
 const mongoose = require('mongoose') //require node module
 
 const mongoURI = 
-    process.env.NODE_EV === 'production'
+    process.env.NODE_ENV === 'production'
         ? process.env.DB_URL  //ternary if/else
         : 'mongodb://localhost/express-mvc'
 
