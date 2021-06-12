@@ -1,0 +1,11 @@
+<h2>Add a new To Do</h2>
+<form action="/todos" method="POST">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" class="form-control"> 
+    {{!-- ^ https://git.generalassemb.ly/flex-323/express-mongoose#new-view --}}
+    {{!-- ^ A common convention is to nest data inside of another sub-object. The title of our new to do will be stored at req.body.todo.title --}}
+  </div>
+  <input type="submit" class="btn btn-primary" />
+  <a href="/todos" class="btn btn-secondary">Cancel</a>
+</form>
