@@ -15,8 +15,17 @@ app.set("port", process.env.PORT || 4000)
 //Route Controllers
 app.use('/todos', todoController)
 
+app.use((err, req, res, next) => {
+    const statusCode = res.statusCode || 500;
+    const message = err.message || 'Internal Server Error';
+    res.status(statusCode).send(message);
+})
+
 //const port = process.env.PORT || 4000
 //app.listen(port, () => {
 app.listen(app.get('port'), () => {
-    console.log(`Express MVC app is running on port ${app.get('port')}`)
+    console.log(`🌟Express MVC app is running on port ${app.get('port')}✅`)
 })
+
+//STRETCH - redirect?
+app.get('/', (req, res) => {res.send(`You've reached the express-mvc index. </br> Navigate to the '/todos' path for routing`)})
